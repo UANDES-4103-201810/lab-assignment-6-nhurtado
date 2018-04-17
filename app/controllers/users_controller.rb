@@ -25,13 +25,22 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    #complete this method
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = "User successfully registered."
+    else
+      flash[:notice] = "Error registering user."
+    end
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    #complete this method
+    if @user.update(user_params)
+      flash[:notice] = "User successfully updated."
+    else
+      flash[:notice]="Error updating user."
+    end
   end
 
   # DELETE /users/1
