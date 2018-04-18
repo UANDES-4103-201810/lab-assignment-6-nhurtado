@@ -7,7 +7,7 @@ class RegistrationsController < ApplicationController
 		@user = User.new(registrations_params)
 		if @user.save
 			flash[:notice] = "User successfully registered."
-			redirect_to @user
+			redirect_to root_path
 		else
 			flash[:notice] = "Error registering user."
 			render "new"
